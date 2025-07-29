@@ -1,0 +1,38 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(77, 77, 201);
+}
+
+section {
+  height: 50vh;
+  width: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  border-radius: 50px;
+  gap: 2px;
+}
+
+.compteur {
+  font-size: 2rem;
+}
+
+button {
+  width: 50%;
+  height: 10%;
+  border-radius: 20px;
+}
+
+.max {
+  font-size: 2rem;
+}
+
+input {
+  width: 50%;
+  margin-bottom: 10%;
+}

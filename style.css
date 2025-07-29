@@ -26,6 +26,7 @@ button {
   width: 50%;
   height: 10%;
   border-radius: 20px;
+  border: 0;
 }
 
 .max {
@@ -35,4 +36,19 @@ button {
 input {
   width: 50%;
   margin-bottom: 10%;
+}
+
+.vert {
+  background-color: rgb(53, 172, 53);
+  color: whitesmoke;
+}
+
+.rouge {
+  background-color: rgb(226, 10, 10);
+  color: whitesmoke;
+}
+
+.bleu {
+  background-color: rgb(97, 97, 247);
+  color: whitesmoke;
 }

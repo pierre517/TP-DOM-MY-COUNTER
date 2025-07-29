@@ -26,6 +26,7 @@ titrePrincipal.after(compteur);
 // création du premier boutton
 
 const btnPlus = document.createElement("button");
+btnPlus.classList.add("vert");
 btnPlus.textContent = "incrémenter +";
 
 // je place mon boutton + apres mon compteur
@@ -35,6 +36,7 @@ compteur.after(btnPlus);
 // création du second boutton
 
 const btnMoins = document.createElement("button");
+btnMoins.classList.add("rouge");
 btnMoins.textContent = "incrémenter -";
 
 // je place mon boutton - apres mon boutton +
@@ -43,6 +45,7 @@ btnPlus.after(btnMoins);
 // création du boutton reset
 
 const reset = document.createElement("button");
+reset.classList.add("bleu");
 reset.textContent = "Reset";
 
 // je place mon reset apres mon boutton -
@@ -51,7 +54,7 @@ btnMoins.after(reset);
 
 // je créé mon emplacement pour ma valeur max
 
-const max = document.createElement("p");
+let max = document.createElement("p");
 max.classList.add("max");
 max.textContent = "∞";
 
@@ -64,6 +67,8 @@ reset.after(max);
 const input = document.createElement("input");
 input.placeholder = "Entrez une valeur max";
 
+let valeurInput = Infinity;
+
 // je place mon input apres mon max
 
 max.after(input);
@@ -75,8 +80,10 @@ max.after(input);
 let valeurCompteur = 0;
 
 btnPlus.addEventListener("click", () => {
-  valeurCompteur++;
-  compteur.textContent = valeurCompteur;
+  if (valeurCompteur < valeurInput) {
+    valeurCompteur++;
+    compteur.textContent = valeurCompteur;
+  }
 });
 
 // incrémentation du boutton -
@@ -95,13 +102,19 @@ btnMoins.addEventListener("click", () => {
 
 reset.addEventListener("click", () => {
   valeurCompteur = valeurCompteur - valeurCompteur;
-  compteur.textContent = "0";
+  compteur.textContent = valeurCompteur;
+  input.value = "";
+  max.textContent = "∞";
 });
 
 // action de l'input
 
-let valeurMax;
-
-input.addEventListener("click", () => {
-  valeurMax = input.value;
+input.addEventListener("input", () => {
+  if (input.value == "") {
+    valeurInput = Infinity;
+    max.textContent = "∞";
+  } else {
+    valeurInput = input.value;
+    max.textContent = valeurInput;
+  }
 });
